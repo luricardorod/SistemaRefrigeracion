@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'refrigeracion.h'
 **
-** Created: Fri 8. Nov 13:01:56 2013
+** Created: Fri 8. Nov 19:28:21 2013
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.0)
 **
 ** WARNING! All changes made in this file will be lost!

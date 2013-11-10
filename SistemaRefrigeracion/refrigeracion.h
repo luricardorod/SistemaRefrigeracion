@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <Qtimer>
 
+
+
 namespace Ui {
     class Refrigeracion;
 }
@@ -16,11 +18,16 @@ public:
     explicit Refrigeracion(QWidget *parent = 0);
     ~Refrigeracion();
 
+
+
     QTimer *Timer;
+
     double TemperaturaRotorTurbinaDeBaja( double U1RTB, double TgTB, double U2RTB, double TRCB, double U3RTB, double Tlub, double U4RTB, double TgenfB, double mRTB, double CPmaterial, double CITRTB);
     double TemperaturaRotorTurbinadeAlta(double U1RTA,double TgTA,double U2RTA,double TRCA,double U3RTA,double Tlub,double U4RTA,double TgenfA,double mRTA,double CPmaterial,double CITRTA);
     
     void inicialisacion();
+
+
 
 public slots:
 

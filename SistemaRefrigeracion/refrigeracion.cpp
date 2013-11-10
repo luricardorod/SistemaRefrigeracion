@@ -1,5 +1,7 @@
 #include "refrigeracion.h"
 #include "ui_refrigeracion.h"
+#include <QScrollBar>
+
 
 Refrigeracion::Refrigeracion(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +14,10 @@ Refrigeracion::Refrigeracion(QWidget *parent) :
 
     connect(this->ui->pushButtonOnOff,SIGNAL(clicked()),this,SLOT(onOff()));
     connect(Timer,SIGNAL(timeout()),this,SLOT(modelo()));
+    this->ui->scrollArea1->x();
+
+
+
 
 
 }
