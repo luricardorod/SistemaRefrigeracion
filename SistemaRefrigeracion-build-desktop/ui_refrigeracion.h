@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'refrigeracion.ui'
 **
-** Created: Fri 8. Nov 20:29:03 2013
+** Created: Sun 10. Nov 11:48:35 2013
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -23,7 +23,6 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
-#include <QtGui/QScrollArea>
 #include <QtGui/QStatusBar>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
@@ -92,10 +91,6 @@ public:
     QLineEdit *lineEditCITRTA;
     QLabel *label_7;
     QLabel *labelTRTA;
-    QScrollArea *scrollArea1;
-    QWidget *scrollAreaWidgetContents;
-    QLabel *label_14;
-    QLabel *label_15;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -399,29 +394,6 @@ public:
         labelTRTA = new QLabel(centralWidget);
         labelTRTA->setObjectName(QString::fromUtf8("labelTRTA"));
         labelTRTA->setGeometry(QRect(680, 30, 46, 13));
-        scrollArea1 = new QScrollArea(centralWidget);
-        scrollArea1->setObjectName(QString::fromUtf8("scrollArea1"));
-        scrollArea1->setGeometry(QRect(550, 250, 100, 71));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy1.setHorizontalStretch(8);
-        sizePolicy1.setVerticalStretch(7);
-        sizePolicy1.setHeightForWidth(scrollArea1->sizePolicy().hasHeightForWidth());
-        scrollArea1->setSizePolicy(sizePolicy1);
-        scrollArea1->setLineWidth(-5);
-        scrollArea1->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        scrollArea1->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        scrollArea1->setWidgetResizable(true);
-        scrollArea1->setAlignment(Qt::AlignCenter);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 98, 69));
-        label_14 = new QLabel(scrollAreaWidgetContents);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setGeometry(QRect(60, 30, 46, 13));
-        label_15 = new QLabel(scrollAreaWidgetContents);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setGeometry(QRect(30, 50, 46, 13));
-        scrollArea1->setWidget(scrollAreaWidgetContents);
         Refrigeracion->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Refrigeracion);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -494,8 +466,6 @@ public:
         lineEditCITRTA->setText(QApplication::translate("Refrigeracion", "1", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("Refrigeracion", "Temperatura de Rotor de turbina de Alta =", 0, QApplication::UnicodeUTF8));
         labelTRTA->setText(QApplication::translate("Refrigeracion", "0", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("Refrigeracion", "TextLabel", 0, QApplication::UnicodeUTF8));
-        label_15->setText(QApplication::translate("Refrigeracion", "TextLabel", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

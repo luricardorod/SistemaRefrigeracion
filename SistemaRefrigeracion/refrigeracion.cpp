@@ -14,7 +14,7 @@ Refrigeracion::Refrigeracion(QWidget *parent) :
 
     connect(this->ui->pushButtonOnOff,SIGNAL(clicked()),this,SLOT(onOff()));
     connect(Timer,SIGNAL(timeout()),this,SLOT(modelo()));
-    this->ui->scrollArea1->x();
+    //this->ui->scrollArea1->x();
 
 
 
