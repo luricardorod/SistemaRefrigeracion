@@ -4,144 +4,255 @@ block custom-stylesheets
 
 block content
   div( ng-app = 'lol', ng-controller = "turbinaController")
-    .col-md-4
-      h5 TemperaturaRotorCompresorDeBaja
-      div( ng-repeat = 'input in TemperaturaRotorCompresorDeBaja')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCarcasaCompresorDeBaja
-      div( ng-repeat = 'input in TemperaturaCarcasaCompresorDeBaja')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaRotorCompresorDeAlta
-      div( ng-repeat = 'input in TemperaturaRotorCompresorDeAlta')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCarcasaCompresorDeAlta
-      div( ng-repeat = 'input in TemperaturaCarcasaCompresorDeAlta')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaRotorTurbinaDeAlta
-      div( ng-repeat = 'input in TemperaturaRotorTurbinaDeAlta')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCarcasaTurbinaDeAlta
-      div( ng-repeat = 'input in TemperaturaCarcasaTurbinaDeAlta')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaRotorTurbinaDeBaja
-      div( ng-repeat = 'input in TemperaturaRotorTurbinaDeBaja')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCarcasaTurbinaDeBaja
-      div( ng-repeat = 'input in TemperaturaCarcasaTurbinaDeBaja')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturadeAireEnElHabitaculo
-      div( ng-repeat = 'input in TemperaturadeAireEnElHabitaculo')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 NivelTanque
-      div( ng-repeat = 'input in NivelTanque')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaTanque
-      div( ng-repeat = 'input in TemperaturaTanque')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 PresionBomba
-      div( ng-repeat = 'input in PresionBomba')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 FlujoBomba
-      div( ng-repeat = 'input in FlujoBomba')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 FlujoBombaBarrido
-      div( ng-repeat = 'input in  FlujoBombaBarrido')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TempSalidaInter
-      div( ng-repeat = 'input in TempSalidaInter')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 Flujo_aire_carters
-      div( ng-repeat = 'input in Flujo_aire_carters')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCA
-      div( ng-repeat = 'input in TemperaturaCA')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCB
-      div( ng-repeat = 'input in TemperaturaCB')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCC
-      div( ng-repeat = 'input in TemperaturaCC')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCD
-      div( ng-repeat = 'input in TemperaturaCD')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaCE
-      div( ng-repeat = 'input in TemperaturaCE')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaLUB
-      div( ng-repeat = 'input in TemperaturaLUB')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
-    .col-md-4
-      h5 TemperaturaTAGB
-      div( ng-repeat = 'input in TemperaturaTAGB')
-        .input-group
-          span.input-group-addon( ng-bind = 'input.label')
-          input.form-control( ng-bind = 'input.value')
+    .col-md-7
+      .row
+        .col-md-4.variables( ng-mouseover = 'hover( 0 )' )
+          h5.title
+            b Temperatura Rotor Compresor De Baja
+          hr
+          div( ng-repeat = 'input in TemperaturaRotorCompresorDeBaja')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 1 )' )
+          h5.title
+            b Temperatura Carcasa Compresor De Baja
+          hr
+          div( ng-repeat = 'input in TemperaturaCarcasaCompresorDeBaja')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 2 )' )
+          h5.title
+            b Temperatura Rotor Compresor De Alta
+          hr
+          div( ng-repeat = 'input in TemperaturaRotorCompresorDeAlta')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 3 )' )
+          h5.title
+            b Temperatura Carcasa Compresor De Alta
+          hr
+          div( ng-repeat = 'input in TemperaturaCarcasaCompresorDeAlta')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 4 )' )
+          h5.title
+            b Temperatura Rotor Turbina De Alta
+          hr
+          div( ng-repeat = 'input in TemperaturaRotorTurbinaDeAlta')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 5 )' )
+          h5.title
+            b Temperatura Carcasa Turbina De Alta
+          hr
+          div( ng-repeat = 'input in TemperaturaCarcasaTurbinaDeAlta')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 6 )' )
+          h5.title
+            b Temperatura Rotor Turbina De Baja
+          hr
+          div( ng-repeat = 'input in TemperaturaRotorTurbinaDeBaja')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 7 )' )
+          h5.title
+            b Temperatura Carcasa Turbina De Baja
+          hr
+          div( ng-repeat = 'input in TemperaturaCarcasaTurbinaDeBaja')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 8 )' )
+          h5.title
+            b Temperatura De Aire En El Habitaculo
+          hr
+          div( ng-repeat = 'input in TemperaturadeAireEnElHabitaculo')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 9 )' )
+          h5.title
+            b Nivel Tanque
+          hr
+          div( ng-repeat = 'input in NivelTanque')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 10 )' )
+          h5.title
+            b Temperatura Tanque
+          hr
+          div( ng-repeat = 'input in TemperaturaTanque')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 11 )' )
+          h5.title
+            b Presion Bomba
+          hr
+          div( ng-repeat = 'input in PresionBomba')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 12 )' )
+          h5.title
+            b Flujo Bomba
+          hr
+          div( ng-repeat = 'input in FlujoBomba')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 13 )' )
+          h5.title
+            b Flujo Bomba Barrido
+          hr
+          div( ng-repeat = 'input in  FlujoBombaBarrido')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 14 )' )
+          h5.title
+            b Temp Salida Inter
+          hr
+          div( ng-repeat = 'input in TempSalidaInter')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 15 )' )
+          h5.title
+            b Flujo aire carters
+          hr
+          div( ng-repeat = 'input in Flujo_aire_carters')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 16 )' )
+          h5.title
+            b Temperatura CA
+          hr
+          div( ng-repeat = 'input in TemperaturaCA')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 17 )' )
+          h5.title
+            b Temperatura CB
+          hr
+          div( ng-repeat = 'input in TemperaturaCB')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 18 )' )
+          h5.title
+            b Temperatura CC
+          hr
+          div( ng-repeat = 'input in TemperaturaCC')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 19 )' )
+          h5.title
+            b Temperatura CD
+          hr
+          div( ng-repeat = 'input in TemperaturaCD')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 20 )' )
+          h5.title
+            b Temperatura CE
+          hr
+          div( ng-repeat = 'input in TemperaturaCE')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 21 )' )
+          h5.title
+            b Temperatura LUB
+          hr
+          div( ng-repeat = 'input in TemperaturaLUB')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+        .col-md-4.variables( ng-mouseover = 'hover( 22 )' )
+          h5.title
+            b Temperatura TAGB
+          hr
+          div( ng-repeat = 'input in TemperaturaTAGB')
+            .row
+              .col-md-7
+                h5.right( ng-bind = 'input.label')
+              .col-md-5.ghost
+                  input.form-control( type='number', ng-model='input.value' )
+
+    .col-md-5.fixed-element
+      table.table.table-hover
+        tr
+          th Salida
+          th Valor
+        tr
+          td
+            button.button.btn.btn-success( ng-click = "play()") Play
+            button.button.btn.btn-danger( ng-click = "stop()") Stop
+          td( ng-bind = 'timer' )
+
+        tr( ng-class = '{ "selected-class-name": $index == selectedIndex }' , 
+          ng-repeat = 'output in outputs' )
+          td( ng-bind = 'output.label' )
+          td( ng-bind = 'output.value | number:4' )
 
 block custom-scripts
+  script( src='/javascripts/own/models.js' )
   script( src='/javascripts/own/controllers/controllers.js' )
