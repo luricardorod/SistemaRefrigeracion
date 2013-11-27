@@ -235,28 +235,12 @@ function turbinaController ( scope, timeout ) {
   scope.Flujo_aire_carters = data.Flujo_aire_carters;
   scope.Table = data.Table;
   scope.outputvalue0 = "";
-  /*scope.TemperaturaCA = data.TemperaturaCA;
-  scope.TemperaturaCB = data.TemperaturaCB;
-  scope.TemperaturaCC = data.TemperaturaCC;
-  scope.TemperaturaCD = data.TemperaturaCD;
-  scope.TemperaturaCE = data.TemperaturaCE;
-  scope.TemperaturaLUB = data.TemperaturaLUB;
-  scope.TemperaturaTAGB = data.TemperaturaTAGB;*/
 
   //OUTPUTS
-
   scope.outputs = data.Outputs;
 
   var stop;
   scope.play = function () {
-    scope.timer = 0;
-
-    var column = {
-      "id": "c" + scope.char.data.cols.length,
-      "label": "C" + scope.char.data.cols.length,
-      "type": "number"
-    }
-    scope.char.data.cols.push( column );
 
     /*console.log("Condiciones Nomales");
     for (var i = 0; i < 600; i++) {
@@ -282,17 +266,16 @@ function turbinaController ( scope, timeout ) {
   //scope.outputs = data.Outputs;
     stop = timeout( function () {
       scope.timer++;
-      scope.timer2--;
-      scope.play();
-      calculus(scope);
+      calculus( scope );
       if( scope.timer > 9 ){
         timeout.cancel( stop );
       }
-    }, 250)
+      scope.play();
+    }, 1000)
   };
 
   scope.stop = function () {
-    scope.Table[0].value = scope.outputvalue0;
+    timeout.cancel( stop );
   }
 
   scope.selectedIndex = 0;
@@ -311,20 +294,14 @@ function turbinaController ( scope, timeout ) {
           "id": "tiempo",
           "label": "Tiempo",
           "type": "string"
+        },
+        {
+          "id": "c1",
+          "label": "C1",
+          "type": "number"
         }
       ],
-      "rows": [
-        { "c": [ { "v": 60 }]},
-        { "c": [ { "v": 120 }]},
-        { "c": [ { "v": 180 }]},
-        { "c": [ { "v": 240 }]},
-        { "c": [ { "v": 300 }]},
-        { "c": [ { "v": 360 }]},
-        { "c": [ { "v": 420 }]},
-        { "c": [ { "v": 480 }]},
-        { "c": [ { "v": 540 }]},
-        { "c": [ { "v": 600 }]}
-      ]
+      "rows": []
     },
     "options": {
       "title": "Temperatura Rotor Compresor De Baja",
@@ -346,7 +323,6 @@ function turbinaController ( scope, timeout ) {
     },
     "formatters": {}
   }
-  
   scope.char = charsMockup;
 
   scope.chartReady = function () {
@@ -372,227 +348,234 @@ function turbinaController ( scope, timeout ) {
 
 function calculus ( scope ) {
 
-  //TemperaturaTanque(CITin_tanque, FlujoMasico_ac, CP_ac, Temp_ac_in, q_elect1, Masa_ac_in );
-  scope.outputs[10].value = TemperaturaTanque (
-                                          scope.TemperaturaTanque[0].value,
-                                          scope.TemperaturaTanque[1].value,
-                                          scope.TemperaturaTanque[2].value,
-                                          scope.TemperaturaTanque[3].value,
-                                          scope.TemperaturaTanque[4].value,
-                                          scope.TemperaturaTanque[5].value);
+  //LOL
+    //TemperaturaTanque(CITin_tanque, FlujoMasico_ac, CP_ac, Temp_ac_in, q_elect1, Masa_ac_in );
+    scope.outputs[10].value = TemperaturaTanque (
+      scope.TemperaturaTanque[0].value,
+      scope.TemperaturaTanque[1].value,
+      scope.TemperaturaTanque[2].value,
+      scope.TemperaturaTanque[3].value,
+      scope.TemperaturaTanque[4].value,
+      scope.TemperaturaTanque[5].value);
 
-  scope.TemperaturaRotorCompresorDeBaja[5].value = scope.outputs[10].value;
+    scope.TemperaturaRotorCompresorDeBaja[5].value = scope.outputs[10].value;
 
-  //TemperaturaRotorCompresorDeBaja(U1RCB, TCCB, U2RCB, TRTB, U3RCB, Tlub, mRCB, CPmaterial, CITRCB);
-  scope.outputs[0].value = TemperaturaRotorCompresorDeBaja(
-                                        scope.TemperaturaRotorCompresorDeBaja[0].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[1].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[2].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[3].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[4].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[5].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[6].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[7].value,
-                                        scope.TemperaturaRotorCompresorDeBaja[8].value);
+    //TemperaturaRotorCompresorDeBaja(U1RCB, TCCB, U2RCB, TRTB, U3RCB, Tlub, mRCB, CPmaterial, CITRCB);
+    scope.outputs[0].value = TemperaturaRotorCompresorDeBaja(
+      scope.TemperaturaRotorCompresorDeBaja[0].value,
+      scope.TemperaturaRotorCompresorDeBaja[1].value,
+      scope.TemperaturaRotorCompresorDeBaja[2].value,
+      scope.TemperaturaRotorCompresorDeBaja[3].value,
+      scope.TemperaturaRotorCompresorDeBaja[4].value,
+      scope.TemperaturaRotorCompresorDeBaja[5].value,
+      scope.TemperaturaRotorCompresorDeBaja[6].value,
+      scope.TemperaturaRotorCompresorDeBaja[7].value,
+      scope.TemperaturaRotorCompresorDeBaja[8].value);
 
-  scope.TemperaturaRotorTurbinaDeBaja[3].value = scope.outputs[0].value;
+    scope.TemperaturaRotorTurbinaDeBaja[3].value = scope.outputs[0].value;
 
-  //TemperaturaCarcasaCompresorDeBaja(U1CCB, Tenf, U2CCB, TgCB, mCCB, CPmaterial, CITCCB);
-  scope.outputs[1].value = TemperaturaCarcasaCompresorDeBaja(
-                                          scope.TemperaturaCarcasaCompresorDeBaja[0].value,
-                                          scope.TemperaturaCarcasaCompresorDeBaja[1].value,
-                                          scope.TemperaturaCarcasaCompresorDeBaja[2].value,
-                                          scope.TemperaturaCarcasaCompresorDeBaja[3].value,
-                                          scope.TemperaturaCarcasaCompresorDeBaja[4].value,
-                                          scope.TemperaturaCarcasaCompresorDeBaja[5].value,
-                                          scope.TemperaturaCarcasaCompresorDeBaja[6].value);
+    //TemperaturaCarcasaCompresorDeBaja(U1CCB, Tenf, U2CCB, TgCB, mCCB, CPmaterial, CITCCB);
+    scope.outputs[1].value = TemperaturaCarcasaCompresorDeBaja(
+      scope.TemperaturaCarcasaCompresorDeBaja[0].value,
+      scope.TemperaturaCarcasaCompresorDeBaja[1].value,
+      scope.TemperaturaCarcasaCompresorDeBaja[2].value,
+      scope.TemperaturaCarcasaCompresorDeBaja[3].value,
+      scope.TemperaturaCarcasaCompresorDeBaja[4].value,
+      scope.TemperaturaCarcasaCompresorDeBaja[5].value,
+      scope.TemperaturaCarcasaCompresorDeBaja[6].value);
 
-  scope.TemperaturadeAireEnElHabitaculo[3].value =  scope.outputs[1].value;
-  scope.TemperaturaRotorCompresorDeAlta[5].value = /*(scope.TemperaturaRotorCompresorDeBaja[4].value * ( scope.outputs[0].value - scope.TemperaturaRotorCompresorDeBaja[5].value ) +*/ scope.TemperaturaRotorCompresorDeBaja[5].value;//);
+    scope.TemperaturadeAireEnElHabitaculo[3].value =  scope.outputs[1].value;
+    scope.TemperaturaRotorCompresorDeAlta[5].value = /*(scope.TemperaturaRotorCompresorDeBaja[4].value * ( scope.outputs[0].value - scope.TemperaturaRotorCompresorDeBaja[5].value ) +*/ scope.TemperaturaRotorCompresorDeBaja[5].value;//);
 
-  //TemperaturaRotorCompresorDeAlta(U1RCA, TCCA, U2RCA, TRTA, U3RCA, Tlub, mRCA, CPmaterial, CITRCA);
-  scope.outputs[2].value = TemperaturaRotorCompresorDeAlta(
-                                          scope.TemperaturaRotorCompresorDeAlta[0].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[1].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[2].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[3].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[4].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[5].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[6].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[7].value,
-                                          scope.TemperaturaRotorCompresorDeAlta[8].value);
+    //TemperaturaRotorCompresorDeAlta(U1RCA, TCCA, U2RCA, TRTA, U3RCA, Tlub, mRCA, CPmaterial, CITRCA);
+    scope.outputs[2].value = TemperaturaRotorCompresorDeAlta(
+      scope.TemperaturaRotorCompresorDeAlta[0].value,
+      scope.TemperaturaRotorCompresorDeAlta[1].value,
+      scope.TemperaturaRotorCompresorDeAlta[2].value,
+      scope.TemperaturaRotorCompresorDeAlta[3].value,
+      scope.TemperaturaRotorCompresorDeAlta[4].value,
+      scope.TemperaturaRotorCompresorDeAlta[5].value,
+      scope.TemperaturaRotorCompresorDeAlta[6].value,
+      scope.TemperaturaRotorCompresorDeAlta[7].value,
+      scope.TemperaturaRotorCompresorDeAlta[8].value);
 
-  scope.TemperaturaRotorTurbinaDeAlta[3].value = scope.outputs[2].value;
+    scope.TemperaturaRotorTurbinaDeAlta[3].value = scope.outputs[2].value;
 
-  //TemperaturaCarcasaCompresorDeAlta(U1CCA, Tenf, U2CCA, TgCA, mCCA, CPmaterial, CITCCA);
-  scope.outputs[3].value = TemperaturaCarcasaCompresorDeAlta(
-                                          scope.TemperaturaCarcasaCompresorDeAlta[0].value,
-                                          scope.TemperaturaCarcasaCompresorDeAlta[1].value,
-                                          scope.TemperaturaCarcasaCompresorDeAlta[2].value,
-                                          scope.TemperaturaCarcasaCompresorDeAlta[3].value,
-                                          scope.TemperaturaCarcasaCompresorDeAlta[4].value,
-                                          scope.TemperaturaCarcasaCompresorDeAlta[5].value,
-                                          scope.TemperaturaCarcasaCompresorDeAlta[6].value);
+    //TemperaturaCarcasaCompresorDeAlta(U1CCA, Tenf, U2CCA, TgCA, mCCA, CPmaterial, CITCCA);
+    scope.outputs[3].value = TemperaturaCarcasaCompresorDeAlta(
+      scope.TemperaturaCarcasaCompresorDeAlta[0].value,
+      scope.TemperaturaCarcasaCompresorDeAlta[1].value,
+      scope.TemperaturaCarcasaCompresorDeAlta[2].value,
+      scope.TemperaturaCarcasaCompresorDeAlta[3].value,
+      scope.TemperaturaCarcasaCompresorDeAlta[4].value,
+      scope.TemperaturaCarcasaCompresorDeAlta[5].value,
+      scope.TemperaturaCarcasaCompresorDeAlta[6].value);
 
-  scope.TemperaturadeAireEnElHabitaculo[9].value = scope.outputs[3].value;
-  scope.TemperaturaRotorTurbinaDeAlta[5].value = (scope.TemperaturaRotorCompresorDeAlta[4].value * ( scope.outputs[2].value - scope.TemperaturaRotorCompresorDeAlta[5].value ) + scope.TemperaturaRotorCompresorDeAlta[5].value);
+    scope.TemperaturadeAireEnElHabitaculo[9].value = scope.outputs[3].value;
+    scope.TemperaturaRotorTurbinaDeAlta[5].value = (scope.TemperaturaRotorCompresorDeAlta[4].value * ( scope.outputs[2].value - scope.TemperaturaRotorCompresorDeAlta[5].value ) + scope.TemperaturaRotorCompresorDeAlta[5].value);
 
-  //TemperaturaRotorTurbinaDeAlta(U1RTA, TgTA, U2RTA, TRCA, U3RTA, Tlub, U4RTA, TgenfA, mRTA, CPmaterial, CITRTA);
-  scope.outputs[4].value = TemperaturaRotorTurbinaDeAlta (
-                                          scope.TemperaturaRotorTurbinaDeAlta[0].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[1].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[2].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[3].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[4].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[5].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[6].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[7].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[8].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[9].value,
-                                          scope.TemperaturaRotorTurbinaDeAlta[10].value);
+    //TemperaturaRotorTurbinaDeAlta(U1RTA, TgTA, U2RTA, TRCA, U3RTA, Tlub, U4RTA, TgenfA, mRTA, CPmaterial, CITRTA);
+    scope.outputs[4].value = TemperaturaRotorTurbinaDeAlta (
+      scope.TemperaturaRotorTurbinaDeAlta[0].value,
+      scope.TemperaturaRotorTurbinaDeAlta[1].value,
+      scope.TemperaturaRotorTurbinaDeAlta[2].value,
+      scope.TemperaturaRotorTurbinaDeAlta[3].value,
+      scope.TemperaturaRotorTurbinaDeAlta[4].value,
+      scope.TemperaturaRotorTurbinaDeAlta[5].value,
+      scope.TemperaturaRotorTurbinaDeAlta[6].value,
+      scope.TemperaturaRotorTurbinaDeAlta[7].value,
+      scope.TemperaturaRotorTurbinaDeAlta[8].value,
+      scope.TemperaturaRotorTurbinaDeAlta[9].value,
+      scope.TemperaturaRotorTurbinaDeAlta[10].value);
 
-  scope.TemperaturaRotorCompresorDeAlta[3].value = scope.outputs[4].value;
+    scope.TemperaturaRotorCompresorDeAlta[3].value = scope.outputs[4].value;
 
-  //TemperaturaCarcasaTurbinaDeAlta(U1CTA, Tenf, U2CTA, TgTA, mCTA, CPmaterial, CITCTA);
-  scope.outputs[5].value = TemperaturaCarcasaTurbinaDeAlta (
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[0].value,
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[1].value,
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[2].value,
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[3].value,
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[4].value,
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[5].value,
-                                          scope.TemperaturaCarcasaTurbinaDeAlta[6].value);
+    //TemperaturaCarcasaTurbinaDeAlta(U1CTA, Tenf, U2CTA, TgTA, mCTA, CPmaterial, CITCTA);
+    scope.outputs[5].value = TemperaturaCarcasaTurbinaDeAlta (
+      scope.TemperaturaCarcasaTurbinaDeAlta[0].value,
+      scope.TemperaturaCarcasaTurbinaDeAlta[1].value,
+      scope.TemperaturaCarcasaTurbinaDeAlta[2].value,
+      scope.TemperaturaCarcasaTurbinaDeAlta[3].value,
+      scope.TemperaturaCarcasaTurbinaDeAlta[4].value,
+      scope.TemperaturaCarcasaTurbinaDeAlta[5].value,
+      scope.TemperaturaCarcasaTurbinaDeAlta[6].value);
 
-  scope.TemperaturadeAireEnElHabitaculo[7].value = scope.outputs[5].value;
-  scope.TemperaturaRotorTurbinaDeBaja[5].value = (scope.TemperaturaRotorTurbinaDeAlta[4].value * ( scope.outputs[4].value - scope.TemperaturaRotorTurbinaDeAlta[5].value ) + scope.TemperaturaRotorTurbinaDeAlta[5].value);
+    scope.TemperaturadeAireEnElHabitaculo[7].value = scope.outputs[5].value;
+    scope.TemperaturaRotorTurbinaDeBaja[5].value = (scope.TemperaturaRotorTurbinaDeAlta[4].value * ( scope.outputs[4].value - scope.TemperaturaRotorTurbinaDeAlta[5].value ) + scope.TemperaturaRotorTurbinaDeAlta[5].value);
 
-  //TemperaturaRotorTurbinaDeBaja(U1RTB, TgTB, U2RTB, TRCB, U3RTB, Tlub, U4RTB, TgenfB, mRTB, CPmaterial, CITRTB);
-  scope.outputs[6].value = TemperaturaRotorTurbinaDeBaja (
-                                          scope.TemperaturaRotorTurbinaDeBaja[0].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[1].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[2].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[3].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[4].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[5].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[6].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[7].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[8].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[9].value,
-                                          scope.TemperaturaRotorTurbinaDeBaja[10].value);
+    //TemperaturaRotorTurbinaDeBaja(U1RTB, TgTB, U2RTB, TRCB, U3RTB, Tlub, U4RTB, TgenfB, mRTB, CPmaterial, CITRTB);
+    scope.outputs[6].value = TemperaturaRotorTurbinaDeBaja (
+      scope.TemperaturaRotorTurbinaDeBaja[0].value,
+      scope.TemperaturaRotorTurbinaDeBaja[1].value,
+      scope.TemperaturaRotorTurbinaDeBaja[2].value,
+      scope.TemperaturaRotorTurbinaDeBaja[3].value,
+      scope.TemperaturaRotorTurbinaDeBaja[4].value,
+      scope.TemperaturaRotorTurbinaDeBaja[5].value,
+      scope.TemperaturaRotorTurbinaDeBaja[6].value,
+      scope.TemperaturaRotorTurbinaDeBaja[7].value,
+      scope.TemperaturaRotorTurbinaDeBaja[8].value,
+      scope.TemperaturaRotorTurbinaDeBaja[9].value,
+      scope.TemperaturaRotorTurbinaDeBaja[10].value);
 
-  scope.TemperaturaRotorCompresorDeBaja[3].value = scope.outputs[6].value;
-  scope.TempSalidaInter[2].value = scope.TemperaturaRotorTurbinaDeBaja[5].value * 1.1;
-  //TemperaturaCarcasaTurbinaDeBaja(U1CTB, Tenf, U2CTB, TgTB, mCTB, CPmaterial, CITCTB);
-  scope.outputs[7].value = TemperaturaCarcasaTurbinaDeBaja (
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[0].value,
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[1].value,
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[2].value,
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[3].value,
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[4].value,
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[5].value,
-                                          scope.TemperaturaCarcasaTurbinaDeBaja[6].value);
+    scope.TemperaturaRotorCompresorDeBaja[3].value = scope.outputs[6].value;
+    scope.TempSalidaInter[2].value = scope.TemperaturaRotorTurbinaDeBaja[5].value * 1.1;
+    //TemperaturaCarcasaTurbinaDeBaja(U1CTB, Tenf, U2CTB, TgTB, mCTB, CPmaterial, CITCTB);
+    scope.outputs[7].value = TemperaturaCarcasaTurbinaDeBaja (
+      scope.TemperaturaCarcasaTurbinaDeBaja[0].value,
+      scope.TemperaturaCarcasaTurbinaDeBaja[1].value,
+      scope.TemperaturaCarcasaTurbinaDeBaja[2].value,
+      scope.TemperaturaCarcasaTurbinaDeBaja[3].value,
+      scope.TemperaturaCarcasaTurbinaDeBaja[4].value,
+      scope.TemperaturaCarcasaTurbinaDeBaja[5].value,
+      scope.TemperaturaCarcasaTurbinaDeBaja[6].value);
 
-  scope.TemperaturadeAireEnElHabitaculo[1].value = scope.outputs[7].value;
+    scope.TemperaturadeAireEnElHabitaculo[1].value = scope.outputs[7].value;
 
-  //TemperaturadeAireEnElHabitaculo(U1enf, TCTB, U2enf, TCCB, FMaire, Tchiller, U3enf, TCTA, U4enf, TCCA, menf, CPaire,CITenf);
-  scope.outputs[8].value = TemperaturadeAireEnElHabitaculo (
-                                          scope.TemperaturadeAireEnElHabitaculo[0].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[1].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[2].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[3].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[4].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[5].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[6].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[7].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[8].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[9].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[10].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[11].value,
-                                          scope.TemperaturadeAireEnElHabitaculo[12].value);
+    //TemperaturadeAireEnElHabitaculo(U1enf, TCTB, U2enf, TCCB, FMaire, Tchiller, U3enf, TCTA, U4enf, TCCA, menf, CPaire,CITenf);
+    scope.outputs[8].value = TemperaturadeAireEnElHabitaculo (
+      scope.TemperaturadeAireEnElHabitaculo[0].value,
+      scope.TemperaturadeAireEnElHabitaculo[1].value,
+      scope.TemperaturadeAireEnElHabitaculo[2].value,
+      scope.TemperaturadeAireEnElHabitaculo[3].value,
+      scope.TemperaturadeAireEnElHabitaculo[4].value,
+      scope.TemperaturadeAireEnElHabitaculo[5].value,
+      scope.TemperaturadeAireEnElHabitaculo[6].value,
+      scope.TemperaturadeAireEnElHabitaculo[7].value,
+      scope.TemperaturadeAireEnElHabitaculo[8].value,
+      scope.TemperaturadeAireEnElHabitaculo[9].value,
+      scope.TemperaturadeAireEnElHabitaculo[10].value,
+      scope.TemperaturadeAireEnElHabitaculo[11].value,
+      scope.TemperaturadeAireEnElHabitaculo[12].value);
 
-  scope.TemperaturaCarcasaTurbinaDeBaja[1].value = scope.outputs[8].value;
-  scope.TemperaturaCarcasaCompresorDeBaja[1].value = scope.outputs[8].value;
-  scope.TemperaturaCarcasaTurbinaDeAlta[1].value = scope.outputs[8].value;
-  scope.TemperaturaCarcasaCompresorDeAlta[1].value = scope.outputs[8].value;
+    scope.TemperaturaCarcasaTurbinaDeBaja[1].value = scope.outputs[8].value;
+    scope.TemperaturaCarcasaCompresorDeBaja[1].value = scope.outputs[8].value;
+    scope.TemperaturaCarcasaTurbinaDeAlta[1].value = scope.outputs[8].value;
+    scope.TemperaturaCarcasaCompresorDeAlta[1].value = scope.outputs[8].value;
 
-  //NivelTanque( Fin, Fout, Area, CITanque, signal);
-  scope.outputs[9].value = NivelTanque (
-                                          scope.NivelTanque[0].value,
-                                          scope.NivelTanque[1].value,
-                                          scope.NivelTanque[2].value,
-                                          scope.NivelTanque[3].value,
-                                          scope.NivelTanque[4].value);
+    //NivelTanque( Fin, Fout, Area, CITanque, signal);
+    scope.outputs[9].value = NivelTanque (
+      scope.NivelTanque[0].value,
+      scope.NivelTanque[1].value,
+      scope.NivelTanque[2].value,
+      scope.NivelTanque[3].value,
+      scope.NivelTanque[4].value);
 
-  //PresionBomba( ValMaxPre, TaoBomba, CIPBomba, signal);
-  scope.outputs[11].value = PresionBomba (
-                                          scope.PresionBomba[0].value,
-                                          scope.PresionBomba[1].value,
-                                          scope.PresionBomba[2].value,
-                                          scope.PresionBomba[3].value);
+    //PresionBomba( ValMaxPre, TaoBomba, CIPBomba, signal);
+    scope.outputs[11].value = PresionBomba (
+      scope.PresionBomba[0].value,
+      scope.PresionBomba[1].value,
+      scope.PresionBomba[2].value,
+      scope.PresionBomba[3].value);
 
-  //FlujoBomba( ValMaxFlujo, TaoBomba, CIFBomba, signal);
-  scope.outputs[12].value = FlujoBomba (
-                                          scope.FlujoBomba[0].value,
-                                          scope.FlujoBomba[1].value,
-                                          scope.FlujoBomba[2].value,
-                                          scope.FlujoBomba[3].value);
+    //FlujoBomba( ValMaxFlujo, TaoBomba, CIFBomba, signal);
+    scope.outputs[12].value = FlujoBomba (
+      scope.FlujoBomba[0].value,
+      scope.FlujoBomba[1].value,
+      scope.FlujoBomba[2].value,
+      scope.FlujoBomba[3].value);
 
-  //FlujoBombaBarrido( ValMaxFlujoBarrido, TaoBombaBarrido, CIFBombaBarrido, signal);
-  scope.outputs[13].value = FlujoBombaBarrido (
-                                          scope.FlujoBombaBarrido[0].value,
-                                          scope.FlujoBombaBarrido[1].value,
-                                          scope.FlujoBombaBarrido[2].value,
-                                          scope.FlujoBombaBarrido[3].value);
+    //FlujoBombaBarrido( ValMaxFlujoBarrido, TaoBombaBarrido, CIFBombaBarrido, signal);
+    scope.outputs[13].value = FlujoBombaBarrido (
+      scope.FlujoBombaBarrido[0].value,
+      scope.FlujoBombaBarrido[1].value,
+      scope.FlujoBombaBarrido[2].value,
+      scope.FlujoBombaBarrido[3].value);
 
-  scope.TempSalidaInter[8].value = scope.outputs[13].value;
+    scope.TempSalidaInter[8].value = scope.outputs[13].value;
 
-  //TempSalidaInter( U_A_Tamb, CP_ac2, Tac_in, CITemp_ac, U_A, Masa_ac_CP_ac2, Densidad2, signal, CIBombadeabrrido);
-  scope.outputs[14].value = TempSalidaInter (
-                                          scope.TempSalidaInter[0].value,
-                                          scope.TempSalidaInter[1].value,
-                                          scope.TempSalidaInter[2].value,
-                                          scope.TempSalidaInter[3].value,
-                                          scope.TempSalidaInter[4].value,
-                                          scope.TempSalidaInter[5].value,
-                                          scope.TempSalidaInter[6].value,
-                                          scope.TempSalidaInter[7].value,
-                                          scope.TempSalidaInter[8].value);
+    //TempSalidaInter( U_A_Tamb, CP_ac2, Tac_in, CITemp_ac, U_A, Masa_ac_CP_ac2, Densidad2, signal, CIBombadeabrrido);
+    scope.outputs[14].value = TempSalidaInter (
+      scope.TempSalidaInter[0].value,
+      scope.TempSalidaInter[1].value,
+      scope.TempSalidaInter[2].value,
+      scope.TempSalidaInter[3].value,
+      scope.TempSalidaInter[4].value,
+      scope.TempSalidaInter[5].value,
+      scope.TempSalidaInter[6].value,
+      scope.TempSalidaInter[7].value,
+      scope.TempSalidaInter[8].value);
 
-  scope.TemperaturaTanque[3].value = scope.outputs[14].value;
+    scope.TemperaturaTanque[3].value = scope.outputs[14].value;
 
-  //Flujo_aire_carters( ValFlujo, TaoFlujo, CIFlujo, signal);
-  scope.outputs[15].value = Flujo_aire_carters (
-                                          scope.Flujo_aire_carters[0].value,
-                                          scope.Flujo_aire_carters[1].value,
-                                          scope.Flujo_aire_carters[2].value,
-                                          scope.Flujo_aire_carters[3].value);
+    //Flujo_aire_carters( ValFlujo, TaoFlujo, CIFlujo, signal);
+    scope.outputs[15].value = Flujo_aire_carters (
+      scope.Flujo_aire_carters[0].value,
+      scope.Flujo_aire_carters[1].value,
+      scope.Flujo_aire_carters[2].value,
+      scope.Flujo_aire_carters[3].value);
 
-  scope.TemperaturaRotorCompresorDeBaja[8].value = scope.outputs[0].value;
-  scope.TemperaturaCarcasaCompresorDeBaja[6].value = scope.outputs[1].value;
-  scope.TemperaturaRotorCompresorDeAlta[8].value = scope.outputs[2].value;
-  scope.TemperaturaCarcasaCompresorDeAlta[6].value = scope.outputs[3].value;
-  scope.TemperaturaRotorTurbinaDeAlta[10].value = scope.outputs[4].value;
-  scope.TemperaturaCarcasaTurbinaDeAlta[6].value = scope.outputs[5].value;
-  scope.TemperaturaRotorTurbinaDeBaja[10].value = scope.outputs[6].value;
-  scope.TemperaturaCarcasaTurbinaDeBaja[6].value = scope.outputs[7].value;
-  scope.TemperaturadeAireEnElHabitaculo[12].value = scope.outputs[8].value;
-  scope.NivelTanque[3].value = scope.outputs[9].value;
-  scope.TemperaturaTanque[0].value = scope.outputs[10].value;
-  scope.PresionBomba[2].value = scope.outputs[11].value;
-  scope.FlujoBomba[2].value = scope.outputs[12].value;
-  scope.FlujoBombaBarrido[2].value = scope.outputs[13].value;
-  scope.TempSalidaInter[3].value = scope.outputs[14].value;
-  scope.Flujo_aire_carters[2].value = scope.outputs[15].value;
+    scope.TemperaturaRotorCompresorDeBaja[8].value = scope.outputs[0].value;
+    scope.TemperaturaCarcasaCompresorDeBaja[6].value = scope.outputs[1].value;
+    scope.TemperaturaRotorCompresorDeAlta[8].value = scope.outputs[2].value;
+    scope.TemperaturaCarcasaCompresorDeAlta[6].value = scope.outputs[3].value;
+    scope.TemperaturaRotorTurbinaDeAlta[10].value = scope.outputs[4].value;
+    scope.TemperaturaCarcasaTurbinaDeAlta[6].value = scope.outputs[5].value;
+    scope.TemperaturaRotorTurbinaDeBaja[10].value = scope.outputs[6].value;
+    scope.TemperaturaCarcasaTurbinaDeBaja[6].value = scope.outputs[7].value;
+    scope.TemperaturadeAireEnElHabitaculo[12].value = scope.outputs[8].value;
+    scope.NivelTanque[3].value = scope.outputs[9].value;
+    scope.TemperaturaTanque[0].value = scope.outputs[10].value;
+    scope.PresionBomba[2].value = scope.outputs[11].value;
+    scope.FlujoBomba[2].value = scope.outputs[12].value;
+    scope.FlujoBombaBarrido[2].value = scope.outputs[13].value;
+    scope.TempSalidaInter[3].value = scope.outputs[14].value;
+    scope.Flujo_aire_carters[2].value = scope.outputs[15].value;
 
-  if((scope.timer % 60) == 0){
+  if(/*(scope.timer % 60) == 0*/ true ){
     console.log(scope.outputs[0].value);
     var minute = scope.timer / 60;
-    var row = {
-      "v": scope.outputs[0].value,
-      "f": (Math.floor(scope.outputs[0].value * 100) / 100) + " °C"
+    var rofl = {
+      "c": [
+        {
+          "v": scope.timer
+        },{
+          "v": scope.outputs[0].value,
+          "f": (Math.floor(scope.outputs[0].value * 100) / 100) + " °C"
+        }
+      ]
+      
     }
-    scope.outputvalue0 = scope.outputvalue0.concat( scope.outputs[1].value );
-    scope.char.data.rows[minute - 1].c.push( row );
+    scope.char.data.rows.push( rofl );
 
     console.log(scope.outputs[1].value);
     console.log(scope.outputs[2].value);
@@ -612,13 +595,6 @@ function calculus ( scope ) {
     console.log(scope.outputs[15].value);
     console.log('FIN');
   }
-  /*scope.TemperaturaCA[2].value = scope.outputs[16].value;
-  scope.TemperaturaCB[2].value = scope.outputs[17].value;
-  scope.TemperaturaCC[2].value = scope.outputs[18].value;
-  scope.TemperaturaCD[2].value = scope.outputs[19].value;
-  scope.TemperaturaCE[2].value = scope.outputs[20].value;
-  scope.TemperaturaLUB[2].value = scope.outputs[16].value;
-  scope.TemperaturaTAGB[2].value = scope.outputs[17].value;*/
 }
 
 function condicionesIniciales ( scope ) {
@@ -755,4 +731,14 @@ function condicionesIniciales ( scope ) {
   scope.Flujo_aire_carters[1].value = 0.5 ;
   scope.Flujo_aire_carters[2].value = 0 ;
   scope.Flujo_aire_carters[3].value = 1;
+}
+
+function addColumn ( scope ) { 
+  var column = {
+    "id": "c" + scope.char.data.cols.length,
+    "label": "C" + scope.char.data.cols.length,
+    "type": "number"
+  }
+
+  scope.char.data.cols.push( column );
 }
